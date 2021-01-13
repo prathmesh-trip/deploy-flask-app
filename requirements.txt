@@ -1,6 +1,14 @@
+<<<<<<< HEAD
 flask
 sklearn
 pandas
 numpy
 gunicorn
 streamlit
+=======
+flask
+sklearn
+pandas
+numpy
+gunicorn
+>>>>>>> 0ae4e3aec04ef5229243d51c7f0cae642a3c9b92
