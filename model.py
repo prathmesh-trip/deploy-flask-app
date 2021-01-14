@@ -25,7 +25,7 @@ y_train = train_data['Loan_Status']
 
 
 ##One hot encoding
-X_train = pd.get_dummies(X, columns=['Gender', 'Married', 'Dependents', 'Education', 'Self_Employed','Property_Area'])
+X_train = pd.get_dummies(X_train, columns=['Gender', 'Married', 'Dependents', 'Education', 'Self_Employed','Property_Area'])
 
 ##Logistic Regression Model
 from sklearn.linear_model import LogisticRegression
@@ -119,4 +119,4 @@ else :
 print(data)
 
 # this is single sample
-print(model_final.predict([data]))
+print("The final result is ",model_final.predict([data]))
