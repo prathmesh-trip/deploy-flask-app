@@ -1,9 +1,12 @@
 import numpy as np
 from flask import Flask, request, jsonify, render_template
 import pickle
+import os
 
 app = Flask(__name__)
-model = pickle.load(open('model.pkl', 'rb'))
+
+def load_model():
+   return pickle.load(open('model.pkl', 'rb'))
 
 @app.route('/')
 def home():
@@ -94,12 +97,14 @@ def predict():
         data.append(1)
 
        
+    model = load_model()
     prediction = model.predict([data])
 
     output = round(prediction[0], 2)
 
-    return render_template('index.html', prediction_text='The Insurance cost will be   $ {}'.format(output))
+    return render_template('index.html', prediction_text='The Loan Status will be {}'.format(output))
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    port=int(os.environ.get('PORT',5000))
+    app.run(port=port,debug=True,use_reloader=False)
